@@ -9,13 +9,11 @@ public class Main {
                 .linkWith(new AuthorizationMiddleware())
                 .linkWith(new RouteMiddleware());
 
-        // Первый запрос
         Request request1 = new Request("/cached", "GET");
         middleware.handle(request1);
 
         System.out.println();
 
-        // Второй запрос
         Request request2 = new Request("/secure", "GET");
         middleware.handle(request2);
     }
